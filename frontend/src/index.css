@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --sidebar-width: 260px;
+  }
+
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 dark:bg-[#0a0f1e] dark:text-gray-100 font-sans antialiased;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-gray-300 dark:bg-gray-700 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-primary-400; }
+
+  /* Focus ring reset */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2 ring-offset-white dark:ring-offset-gray-950;
+  }
+}
+
+@layer components {
+  /* ─── Buttons ─────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-gradient-to-r from-primary-600 to-primary-700
+           hover:from-primary-500 hover:to-primary-600
+           active:scale-[0.98]
+           text-white font-semibold px-5 py-2.5 rounded-xl
+           shadow-md shadow-primary-500/25 hover:shadow-lg hover:shadow-primary-500/30
+           transition-all duration-200
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-white dark:bg-gray-800
+           border border-gray-200 dark:border-gray-700
+           hover:bg-gray-50 dark:hover:bg-gray-700
+           active:scale-[0.98]
+           text-gray-700 dark:text-gray-200 font-semibold px-5 py-2.5 rounded-xl
+           shadow-sm hover:shadow-md
+           transition-all duration-200;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+           border-2 border-primary-500 text-primary-600 dark:text-primary-400
+           hover:bg-primary-50 dark:hover:bg-primary-950/50
+           active:scale-[0.98]
+           font-semibold px-5 py-2.5 rounded-xl
+           transition-all duration-200;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2
+           bg-red-500 hover:bg-red-600 active:scale-[0.98]
+           text-white font-semibold px-4 py-2 rounded-xl
+           shadow-md shadow-red-500/20
+           transition-all duration-200;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           text-gray-600 dark:text-gray-400
+           hover:text-gray-900 dark:hover:text-gray-100
+           hover:bg-gray-100 dark:hover:bg-gray-800
+           font-medium px-3 py-2 rounded-lg
+           transition-all duration-200;
+  }
+
+  /* ─── Cards ───────────────────────────────────── */
+  .card {
+    @apply bg-white dark:bg-gray-900/80
+           rounded-2xl
+           shadow-sm shadow-gray-200/80 dark:shadow-black/20
+           border border-gray-200/80 dark:border-gray-800/80
+           p-6
+           backdrop-blur-sm;
+  }
+  .card-hover {
+    @apply card hover:shadow-lg hover:shadow-primary-500/5 hover:border-primary-200 dark:hover:border-primary-800
+           hover:-translate-y-0.5 transition-all duration-300 cursor-pointer;
+  }
+  .card-glass {
+    @apply bg-white/60 dark:bg-gray-900/60
+           backdrop-blur-xl
+           rounded-2xl border border-white/20 dark:border-gray-700/40
+           shadow-xl shadow-black/5 dark:shadow-black/30
+           p-6;
+  }
+
+  /* ─── Inputs ──────────────────────────────────── */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-xl
+           border border-gray-200 dark:border-gray-700
+           bg-gray-50 dark:bg-gray-800/60
+           text-gray-900 dark:text-gray-100
+           placeholder:text-gray-400 dark:placeholder:text-gray-500
+           focus:ring-2 focus:ring-primary-500/50 focus:border-primary-400
+           dark:focus:border-primary-600
+           outline-none transition-all duration-200
+           hover:border-gray-300 dark:hover:border-gray-600;
+  }
+  .input-field-sm {
+    @apply input-field px-3 py-2 text-sm rounded-lg;
+  }
+
+  /* ─── Labels ──────────────────────────────────── */
+  .label {
+    @apply block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1.5 tracking-wide;
+  }
+
+  /* ─── Badges / Chips ──────────────────────────── */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold;
+  }
+  .badge-primary { @apply badge bg-primary-100 dark:bg-primary-950/60 text-primary-700 dark:text-primary-300; }
+  .badge-green   { @apply badge bg-green-100  dark:bg-green-950/60  text-green-700  dark:text-green-300;  }
+  .badge-yellow  { @apply badge bg-yellow-100 dark:bg-yellow-950/60 text-yellow-700 dark:text-yellow-300; }
+  .badge-red     { @apply badge bg-red-100    dark:bg-red-950/60    text-red-700    dark:text-red-300;    }
+  .badge-purple  { @apply badge bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300; }
+  .badge-gray    { @apply badge bg-gray-100   dark:bg-gray-800      text-gray-600   dark:text-gray-400;   }
+
+  /* ─── Section headings ────────────────────────── */
+  .section-title {
+    @apply text-xl font-bold text-gray-900 dark:text-white tracking-tight;
+  }
+  .section-subtitle {
+    @apply text-sm text-gray-500 dark:text-gray-400 mt-1;
+  }
+
+  /* ─── Skill tag ───────────────────────────────── */
+  .skill-tag {
+    @apply inline-flex items-center px-3 py-1.5 rounded-full text-xs font-semibold
+           bg-primary-50 dark:bg-primary-950/50 text-primary-700 dark:text-primary-300
+           border border-primary-100 dark:border-primary-900;
+  }
+
+  /* ─── Status badge ────────────────────────────── */
+  .status-applied    { @apply badge-primary; }
+  .status-shortlisted{ @apply badge-yellow; }
+  .status-interview  { @apply badge-purple; }
+  .status-selected   { @apply badge-green; }
+  .status-rejected   { @apply badge-red; }
+
+  /* ─── Gradient text ───────────────────────────── */
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 via-purple-500 to-blue-500 bg-clip-text text-transparent;
+  }
+
+  /* ─── Divider ─────────────────────────────────── */
+  .divider {
+    @apply border-t border-gray-100 dark:border-gray-800 my-4;
+  }
+
+  /* ─── Page header ─────────────────────────────── */
+  .page-header {
+    @apply mb-6;
+  }
+  .page-title {
+    @apply text-2xl font-bold text-gray-900 dark:text-white tracking-tight;
+  }
+  .page-description {
+    @apply text-gray-500 dark:text-gray-400 mt-1 text-sm;
+  }
+
+  /* ─── Nav item ────────────────────────────────── */
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium
+           text-gray-600 dark:text-gray-400
+           hover:bg-primary-50 dark:hover:bg-primary-950/50
+           hover:text-primary-700 dark:hover:text-primary-300
+           transition-all duration-200;
+  }
+  .nav-item-active {
+    @apply bg-primary-50 dark:bg-primary-950/60
+           text-primary-700 dark:text-primary-300
+           shadow-sm border border-primary-100 dark:border-primary-900/50;
+  }
+}
+
+@layer utilities {
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out both;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out both;
+  }
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Glass morphism helper */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  /* Gradient mesh backgrounds */
+  .bg-mesh-light {
+    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(59,130,246,0.08) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 80% 80%,  rgba(139,92,246,0.06) 0%, transparent 70%);
+  }
+  .bg-mesh-dark {
+    background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(59,130,246,0.12) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 80% 80%,  rgba(139,92,246,0.10) 0%, transparent 70%);
+  }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
