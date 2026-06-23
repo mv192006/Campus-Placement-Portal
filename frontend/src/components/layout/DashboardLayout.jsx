@@ -16,11 +16,11 @@ const DashboardLayout = ({ navItems, title }) => {
   const isActive = (path) => location.pathname === path || location.pathname.startsWith(path + '/');
 
   const roleColors = {
-    student:   'bg-primary-600',
-    recruiter: 'bg-apple-dark dark:bg-apple-gray dark:text-apple-dark text-white',
-    admin:     'bg-gray-500 text-white',
+    student:   'bg-black dark:bg-white text-white dark:text-black',
+    recruiter: 'bg-gray-800 dark:bg-gray-200 text-white dark:text-black',
+    admin:     'bg-gray-600 text-white',
   };
-  const gradientClass = roleColors[user?.role] || 'bg-primary-600 text-white';
+  const gradientClass = roleColors[user?.role] || 'bg-black dark:bg-white text-white dark:text-black';
 
   const initials = user?.name
     ? user.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)
@@ -91,12 +91,11 @@ const DashboardLayout = ({ navItems, title }) => {
           })}
         </nav>
 
-        {/* Logout */}
         <div className="px-4 py-6 border-t border-gray-200/50 dark:border-[#333336]">
           <button
             onClick={() => dispatch(logout())}
             className="w-full flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-medium
-              text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 transition-colors duration-200"
+              text-black dark:text-white hover:bg-gray-100 dark:hover:bg-[#333336]/50 transition-colors duration-200"
           >
             <LogOut className="h-4.5 w-4.5" />
             Sign Out
@@ -137,7 +136,7 @@ const DashboardLayout = ({ navItems, title }) => {
               <button className="p-2 rounded-xl hover:bg-gray-200/50 dark:hover:bg-[#333336] transition-colors relative">
                 <Bell className="h-5 w-5 text-[#86868b]" />
                 {notifications.length > 0 && (
-                  <span className="absolute top-1.5 right-1.5 h-2 w-2 bg-red-500 rounded-full" />
+                  <span className="absolute top-1.5 right-1.5 h-2 w-2 bg-black dark:bg-white rounded-full" />
                 )}
               </button>
             </div>

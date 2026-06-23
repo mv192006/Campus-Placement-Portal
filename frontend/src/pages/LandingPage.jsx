@@ -13,8 +13,8 @@ const LandingPage = () => (
         </div>
         <div className="flex items-center gap-6">
           <ThemeToggle />
-          <Link to="/login" className="text-sm font-medium text-apple-dark dark:text-apple-gray hover:text-primary-600 transition-colors">Log In</Link>
-          <Link to="/signup" className="text-sm font-medium text-primary-600 hover:text-primary-500 transition-colors">Sign Up</Link>
+          <Link to="/login" className="text-sm font-medium text-apple-dark dark:text-apple-gray hover:text-black dark:hover:text-white transition-colors">Log In</Link>
+          <Link to="/signup" className="text-sm font-medium text-black dark:text-white hover:underline transition-all">Sign Up</Link>
         </div>
       </div>
     </nav>

@@ -28,12 +28,12 @@
 }
 
 @layer components {
-  /* ─── Buttons ─────────────────────────────────── */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2
-           bg-primary-600 hover:bg-primary-500
+           bg-black dark:bg-white text-white dark:text-black
+           hover:bg-gray-800 dark:hover:bg-gray-200
            active:scale-[0.98]
-           text-white font-medium px-6 py-3 rounded-full
+           font-medium px-6 py-3 rounded-full
            transition-all duration-300
            disabled:opacity-50 disabled:cursor-not-allowed;
   }
@@ -55,9 +55,8 @@
   }
   .btn-danger {
     @apply inline-flex items-center justify-center gap-2
-           bg-red-500 hover:bg-red-600 active:scale-[0.98]
-           text-white font-semibold px-4 py-2 rounded-xl
-           shadow-md shadow-red-500/20
+           bg-black dark:bg-white hover:bg-gray-800 dark:hover:bg-gray-200 active:scale-[0.98]
+           text-white dark:text-black font-semibold px-4 py-2 rounded-xl
            transition-all duration-200;
   }
   .btn-ghost {
@@ -93,7 +92,7 @@
            bg-white dark:bg-black
            text-apple-dark dark:text-white
            placeholder:text-gray-400 dark:placeholder:text-gray-500
-           focus:ring-2 focus:ring-primary-500 focus:border-primary-500
+           focus:ring-2 focus:ring-black dark:focus:ring-white focus:border-black dark:focus:border-white
            outline-none transition-all duration-300;
   }
   .input-field-sm {
@@ -132,14 +131,14 @@
   }
 
   /* ─── Status badge ────────────────────────────── */
-  .status-applied    { @apply badge-primary; }
-  .status-shortlisted{ @apply badge-yellow; }
-  .status-interview  { @apply badge-purple; }
-  .status-selected   { @apply badge-green; }
-  .status-rejected   { @apply badge-red; }
+  .status-applied    { @apply badge-gray; }
+  .status-shortlisted{ @apply badge-gray; }
+  .status-interview  { @apply badge-gray; }
+  .status-selected   { @apply badge-gray; }
+  .status-rejected   { @apply badge-gray; }
 
   .text-gradient {
-    @apply text-primary-600 dark:text-primary-400;
+    @apply text-black dark:text-white;
   }
 
   /* ─── Divider ─────────────────────────────────── */
