@@ -16,55 +16,55 @@ const DashboardLayout = ({ navItems, title }) => {
   const isActive = (path) => location.pathname === path || location.pathname.startsWith(path + '/');
 
   const roleColors = {
-    student:   'from-primary-600 to-blue-700',
-    recruiter: 'from-violet-600 to-purple-700',
-    admin:     'from-emerald-600 to-teal-700',
+    student:   'from-primary-600 to-indigo-500',
+    recruiter: 'from-violet-600 to-fuchsia-600',
+    admin:     'from-emerald-600 to-teal-500',
   };
-  const gradientClass = roleColors[user?.role] || 'from-primary-600 to-blue-700';
+  const gradientClass = roleColors[user?.role] || 'from-primary-600 to-indigo-500';
 
   const initials = user?.name
     ? user.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2)
     : 'U';
 
   return (
-    <div className="min-h-screen flex bg-gray-50 dark:bg-[#0a0f1e]">
+    <div className="min-h-screen flex bg-slate-50 dark:bg-slate-950">
       {/* Sidebar */}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-[260px] flex flex-col
-          bg-white dark:bg-gray-900/95 backdrop-blur-xl
-          border-r border-gray-200/80 dark:border-gray-800/80
-          shadow-xl shadow-black/5 dark:shadow-black/30
+        className={`fixed inset-y-0 left-0 z-50 w-[280px] flex flex-col
+          bg-white dark:bg-slate-900/95 backdrop-blur-xl
+          border-r border-slate-200/80 dark:border-slate-800/80
+          shadow-[4px_0_24px_rgba(0,0,0,0.02)] dark:shadow-[4px_0_24px_rgba(0,0,0,0.2)]
           transform transition-transform duration-300 ease-in-out
           lg:translate-x-0 lg:static lg:z-auto
           ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
       >
         {/* Logo */}
-        <div className="px-6 py-5 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className={`p-2 rounded-xl bg-gradient-to-br ${gradientClass} shadow-lg`}>
+        <div className="px-6 py-6 border-b border-slate-100 dark:border-slate-800/80 flex items-center justify-between">
+          <Link to="/" className="flex items-center gap-3 group">
+            <div className={`p-2 rounded-xl bg-gradient-to-br ${gradientClass} shadow-soft`}>
               <Briefcase className="h-4 w-4 text-white" />
             </div>
-            <span className="font-bold text-[17px] tracking-tight text-gray-900 dark:text-white">
+            <span className="font-extrabold text-[18px] tracking-tight text-slate-900 dark:text-white">
               PlacementAI
             </span>
           </Link>
           <button
-            className="lg:hidden p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="lg:hidden p-2 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800"
             onClick={() => setSidebarOpen(false)}
           >
-            <X className="h-4 w-4 text-gray-500" />
+            <X className="h-5 w-5 text-slate-500" />
           </button>
         </div>
 
         {/* User Card */}
-        <div className="mx-4 my-4 p-3 rounded-xl bg-gray-50 dark:bg-gray-800/60 border border-gray-100 dark:border-gray-700/50">
-          <div className="flex items-center gap-3">
-            <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${gradientClass} flex items-center justify-center shadow-md flex-shrink-0`}>
-              <span className="text-white text-xs font-bold">{initials}</span>
+        <div className="mx-4 my-6 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/30">
+          <div className="flex items-center gap-3.5">
+            <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${gradientClass} flex items-center justify-center shadow-soft flex-shrink-0`}>
+              <span className="text-white text-sm font-bold">{initials}</span>
             </div>
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-gray-900 dark:text-white truncate">{user?.name}</p>
-              <p className="text-[11px] text-gray-500 dark:text-gray-400 capitalize">{user?.role}</p>
+              <p className="text-sm font-bold text-slate-900 dark:text-white truncate">{user?.name}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 capitalize font-medium">{user?.role}</p>
             </div>
           </div>
         </div>
@@ -78,10 +78,10 @@ const DashboardLayout = ({ navItems, title }) => {
                 key={item.path}
                 to={item.path}
                 onClick={() => setSidebarOpen(false)}
-                className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200
+                className={`flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-300
                   ${active
-                    ? `bg-gradient-to-r ${gradientClass} text-white shadow-md`
-                    : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/80 hover:text-gray-900 dark:hover:text-white'
+                    ? `bg-gradient-to-r ${gradientClass} text-white shadow-soft translate-x-1`
+                    : 'text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white hover:translate-x-1'
                   }`}
               >
                 <item.icon className={`h-4.5 w-4.5 flex-shrink-0 ${active ? 'text-white' : ''}`} />
@@ -93,11 +93,11 @@ const DashboardLayout = ({ navItems, title }) => {
         </nav>
 
         {/* Logout */}
-        <div className="px-3 py-4 border-t border-gray-100 dark:border-gray-800">
+        <div className="px-4 py-6 border-t border-slate-100 dark:border-slate-800/80">
           <button
             onClick={() => dispatch(logout())}
-            className="w-full flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium
-              text-red-500 hover:bg-red-50 dark:hover:bg-red-950/30 transition-all duration-200"
+            className="w-full flex items-center gap-3.5 px-4 py-3 rounded-xl text-sm font-semibold
+              text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 transition-all duration-300"
           >
             <LogOut className="h-4.5 w-4.5" />
             Sign Out
@@ -116,30 +116,30 @@ const DashboardLayout = ({ navItems, title }) => {
       {/* Main content */}
       <div className="flex-1 flex flex-col min-w-0">
         {/* Topbar */}
-        <header className="sticky top-0 z-30 h-16 flex items-center justify-between
+        <header className="sticky top-0 z-30 h-20 flex items-center justify-between
           px-4 lg:px-8
-          bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl
-          border-b border-gray-200/80 dark:border-gray-800/80
-          shadow-sm shadow-black/5">
-          <div className="flex items-center gap-3">
+          bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-xl
+          border-b border-slate-200/80 dark:border-slate-800/80
+          shadow-sm z-40">
+          <div className="flex items-center gap-4">
             <button
-              className="lg:hidden p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="lg:hidden p-2.5 rounded-xl hover:bg-slate-200/50 dark:hover:bg-slate-800 transition-colors"
               onClick={() => setSidebarOpen(true)}
             >
-              <Menu className="h-5 w-5 text-gray-600 dark:text-gray-300" />
+              <Menu className="h-5 w-5 text-slate-600 dark:text-slate-300" />
             </button>
             <div>
-              <h1 className="text-base font-bold text-gray-900 dark:text-white">{title}</h1>
+              <h1 className="text-xl font-extrabold text-slate-900 dark:text-white tracking-tight">{title}</h1>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             {/* Notification bell */}
             <div className="relative">
-              <button className="p-2 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors relative">
-                <Bell className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+              <button className="p-2.5 rounded-xl hover:bg-slate-200/50 dark:hover:bg-slate-800 transition-colors relative">
+                <Bell className="h-5 w-5 text-slate-600 dark:text-slate-300" />
                 {notifications.length > 0 && (
-                  <span className="absolute top-1.5 right-1.5 h-2 w-2 bg-red-500 rounded-full ring-2 ring-white dark:ring-gray-900" />
+                  <span className="absolute top-2 right-2 h-2.5 w-2.5 bg-red-500 rounded-full ring-2 ring-white dark:ring-slate-900" />
                 )}
               </button>
             </div>
