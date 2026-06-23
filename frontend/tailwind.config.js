@@ -6,25 +6,37 @@ export default {
     extend: {
       colors: {
         primary: {
-          50: '#eef2ff',
-          100: '#e0e7ff',
-          200: '#c7d2fe',
-          300: '#a5b4fc',
-          400: '#818cf8',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
-          800: '#3730a3',
-          900: '#312e81',
-          950: '#1e1b4b',
+          50: '#f0f8ff',
+          100: '#e0f0fe',
+          200: '#bae0fd',
+          300: '#7cc5fb',
+          400: '#36a7f8',
+          500: '#0084f4',
+          600: '#0066cc', // Apple blue
+          700: '#0052a3',
+          800: '#00468a',
+          900: '#003a73',
+          950: '#00254d',
         },
+        apple: {
+          gray: '#f5f5f7',
+          dark: '#1d1d1f',
+        }
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', 'sans-serif'],
+        sans: [
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"SF Pro Text"',
+          '"Segoe UI"',
+          'Roboto',
+          'Helvetica',
+          'Arial',
+          'sans-serif',
+        ],
       },
       boxShadow: {
-        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-        'glow': '0 0 20px rgba(99, 102, 241, 0.4)',
+        'none': 'none',
       }
     },
   },
