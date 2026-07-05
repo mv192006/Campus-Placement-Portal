@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, clearError } from '../../redux/slices/authSlice';
 import toast from 'react-hot-toast';
-import { Briefcase } from 'lucide-react';
+import { GraduationCap } from 'lucide-react';
 import ThemeToggle from '../../components/common/ThemeToggle';
 import LoadingSpinner from '../../components/common/LoadingSpinner';
 
@@ -31,8 +31,8 @@ const LoginPage = () => {
       <div className="absolute top-6 right-6"><ThemeToggle /></div>
       <div className="card-glass w-full max-w-md animate-fade-in shadow-2xl">
         <div className="text-center mb-8">
-          <div className="p-3 bg-gradient-to-br from-primary-600 to-blue-700 rounded-2xl w-fit mx-auto mb-4 shadow-lg shadow-primary-500/20">
-            <Briefcase className="h-6 w-6 text-white" />
+          <div className="flex items-center justify-center p-3.5 bg-gradient-to-tr from-blue-600 to-indigo-600 dark:from-indigo-500 dark:to-purple-500 rounded-xl w-fit mx-auto mb-4 shadow-lg shadow-blue-500/30 dark:shadow-purple-500/30 border border-white/20 dark:border-white/10 transform rotate-3 hover:rotate-0 transition-all duration-300">
+            <GraduationCap className="h-7 w-7 text-white" />
           </div>
           <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 dark:text-white">Welcome Back</h1>
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Sign in to your PlacementAI account</p>
