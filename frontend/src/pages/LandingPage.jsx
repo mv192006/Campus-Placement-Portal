@@ -20,7 +20,7 @@ const LandingPage = () => (
     </nav>
 
     {/* Hero */}
-    <section className="relative pt-40 pb-32 px-4 flex items-center justify-center min-h-screen">
+    <section className="relative pt-40 pb-32 px-4 flex items-center justify-center min-h-screen bg-mesh-light dark:bg-mesh-dark">
       <div className="max-w-5xl mx-auto text-center relative z-10 animate-fade-in w-full">
         <h1 className="text-6xl sm:text-8xl font-bold tracking-tighter mb-6 text-apple-dark dark:text-white leading-[1.05]">
           Your Gateway to<br />Dream Careers.
